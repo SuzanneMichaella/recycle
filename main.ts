@@ -142,6 +142,8 @@ let jo = sprites.create(img`
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . .
     `, SpriteKind.Player)
+controller.moveSprite(jo)
+scene.cameraFollowSprite(jo)
 let stevie = sprites.create(img`
         .........................
             .........................
@@ -164,6 +166,7 @@ let stevie = sprites.create(img`
             ........f7777f.f7777f....
             ........ffffff.ffffff....
     `, SpriteKind.Enemy)
+stevie.follow(jo)
 // trash items
 let cerealbox = sprites.create(img`
         ................................................................................

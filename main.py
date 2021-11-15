@@ -144,6 +144,8 @@ jo = sprites.create(img("""
             . . . . . f f . . f f . . . . .
     """),
     SpriteKind.player)
+controller.move_sprite(jo)
+scene.camera_follow_sprite(jo)
 
 stevie = sprites.create(img("""
         .........................
@@ -168,6 +170,8 @@ stevie = sprites.create(img("""
             ........ffffff.ffffff....
     """),
     SpriteKind.enemy)
+stevie.follow(jo)
+
 
 #trash items
 cerealbox = sprites.create(img("""
