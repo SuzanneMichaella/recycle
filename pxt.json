@@ -2,7 +2,10 @@
     "name": "recycle",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.3"
     },
     "files": [
         "main.blocks",
