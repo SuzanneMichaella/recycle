@@ -1,15 +1,4 @@
-/** 
-
-'carrystate' = 0
-
-#mechanics
-
-if jo.pos = object.pos:
-
-carrystate ++
-
-
- */
+// mechanics
 tiles.setTilemap(tilemap`
     level2
 `)
@@ -135,7 +124,68 @@ scene.setBackgroundImage(img`
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 `)
+namespace SpriteKind {
+    export const helpers = SpriteKind.create()
+    export const Waste = SpriteKind.create()
+    export const Bin = SpriteKind.create()
+    export const NPC = SpriteKind.create()
+}
+
 //  bins
+let blueBin = sprites.create(img`
+        8888888888888888888888888
+        8888888888888888888888888
+        8888888888888888888888888
+        8888888888888118888888888
+        8888888888811111188888888
+        8888888888111811118888888
+        8888888881118888111888888
+        8888888811188888881888888
+        8888888111888888111118888
+        8888888118888888811188888
+        8888888888888888881888888
+        8888881888888888888888888
+        8888811888888888888118888
+        8881111888888888888111888
+        8811111188888888888811188
+        8888118888888888888881118
+        8881188888888888888888118
+        8881188888888888888888118
+        8811888888888888881888811
+        8811111111111188811888811
+        8811111111111188111111111
+        8888888888888888811881111
+        8888888888888888881888888
+        8888888888888888888888888
+        8888888888888888888888888
+    `, SpriteKind.Bin)
+let blackBin = sprites.create(img`
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+`, SpriteKind.Bin)
 //  characters
 let jo = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -180,6 +230,12 @@ let stevie = sprites.create(img`
             ........ffffff.ffffff....
     `, SpriteKind.Enemy)
 stevie.follow(jo)
+/** 
+stevie.set_position(jo.x - 10, jo.y-10)
+
+how to set position
+
+ */
 //  trash items
 let cerealbox = sprites.create(img`
         ................................................................................
@@ -262,7 +318,7 @@ let cerealbox = sprites.create(img`
             ................................................................................
             ................................................................................
             ................................................................................
-    `, SpriteKind.Projectile)
+    `, SpriteKind.Waste)
 let tunacan = sprites.create(img`
         ................................................................................
             ................................................................................
@@ -344,22 +400,6 @@ let tunacan = sprites.create(img`
             ................................................................................
             ................................................................................
             ................................................................................
-    `, SpriteKind.Projectile)
-let Weeds = sprites.create(img`
-    . . . . . . . . . . 8 8 . . . .
-    . . . 8 8 . . . . . 8 8 . . . .
-    . . . 8 7 8 . . . 8 7 8 . . . .
-    . . . 8 7 6 8 . 8 8 7 8 . . . .
-    . . . 8 6 7 8 . 8 7 7 8 . . . .
-    . . . 8 8 7 8 8 8 7 7 8 . . . .
-    . . . 8 8 7 6 8 6 7 6 8 8 8 8 .
-    8 8 . 8 8 7 7 8 7 7 8 8 6 7 8 .
-    8 7 8 8 8 7 7 8 7 6 8 7 7 6 8 8
-    8 6 7 6 8 6 7 6 7 6 6 7 6 8 8 8
-    . 8 7 7 6 6 7 6 7 6 7 7 8 8 7 8
-    . . 8 7 7 6 7 8 7 6 7 6 8 7 7 8
-    . . . 8 7 6 7 8 6 6 7 8 6 7 8 .
-    . . . 8 7 8 7 8 6 6 8 8 6 8 . .
-    . . . 8 6 8 6 8 6 6 8 8 6 8 . .
-    . . . 8 6 8 6 6 6 6 8 8 6 8 . .
-`)
+    `, SpriteKind.Waste)
+// level 1 
+stevie.sayText("Hi there, I am your turtule guide Stevie")

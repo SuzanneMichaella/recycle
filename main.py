@@ -1,14 +1,8 @@
-"""
 
-'carrystate' = 0
+
+
 
 #mechanics
-
-if jo.pos = object.pos:
-
-carrystate ++
-
-"""
 tiles.set_tilemap(tilemap("""
     level2
 """))
@@ -134,8 +128,79 @@ scene.set_background_image(img("""
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 """))
+
+
+@namespace
+class SpriteKind:
+    helpers = SpriteKind.create()
+    Waste = SpriteKind.create()
+    Bin = SpriteKind.create()
+    NPC = SpriteKind.create()
+
+
+
 # bins
+blueBin = sprites.create (img("""
+        8888888888888888888888888
+        8888888888888888888888888
+        8888888888888888888888888
+        8888888888888118888888888
+        8888888888811111188888888
+        8888888888111811118888888
+        8888888881118888111888888
+        8888888811188888881888888
+        8888888111888888111118888
+        8888888118888888811188888
+        8888888888888888881888888
+        8888881888888888888888888
+        8888811888888888888118888
+        8881111888888888888111888
+        8811111188888888888811188
+        8888118888888888888881118
+        8881188888888888888888118
+        8881188888888888888888118
+        8811888888888888881888811
+        8811111111111188811888811
+        8811111111111188111111111
+        8888888888888888811881111
+        8888888888888888881888888
+        8888888888888888888888888
+        8888888888888888888888888
+    """), 
+    SpriteKind.Bin)
+
+blackBin = sprites.create (img("""
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+    fffffffffffffffffffffffff
+"""),
+    SpriteKind.Bin)
+
+
 # characters
+
 jo = sprites.create(img("""
         . . . . . . f f f f . . . . . . 
             . . . . f f f 2 2 f f f . . . . 
@@ -157,6 +222,8 @@ jo = sprites.create(img("""
     SpriteKind.player)
 controller.move_sprite(jo)
 scene.camera_follow_sprite(jo)
+
+
 stevie = sprites.create(img("""
         .........................
             .........................
@@ -181,6 +248,13 @@ stevie = sprites.create(img("""
     """),
     SpriteKind.enemy)
 stevie.follow(jo)
+
+'''
+stevie.set_position(jo.x - 10, jo.y-10)
+
+how to set position
+'''
+
 
 
 # trash items
@@ -266,7 +340,7 @@ cerealbox = sprites.create(img("""
             ................................................................................
             ................................................................................
     """),
-    SpriteKind.projectile)
+    SpriteKind.Waste)
 tunacan = sprites.create(img("""
         ................................................................................
             ................................................................................
@@ -349,4 +423,9 @@ tunacan = sprites.create(img("""
             ................................................................................
             ................................................................................
     """),
-    SpriteKind.projectile)
+    SpriteKind.Waste)
+
+
+#level 1 
+
+stevie.say_text('Hi there, I am your turtule guide Stevie')
