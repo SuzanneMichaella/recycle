@@ -1,13 +1,12 @@
 @namespace
 class SpriteKind:
     helper = SpriteKind.create()
-    Waste = SpriteKind.create()
+    #Waste = SpriteKind.create()
     Bin = SpriteKind.create()
-    NPC = SpriteKind.create()
+
 """
 *set up* 
 """
-allowCarry = False
 # characters
 jo = sprites.create(img("""
         . . . . . . f f f f . . . . . . 
@@ -237,7 +236,7 @@ cerealbox = sprites.create(img("""
                     ................................................................................
                     ................................................................................
     """),
-    SpriteKind.Waste)
+    SpriteKind.projectile)
 tunacan = sprites.create(img("""
         ................................................................................
                     ................................................................................
@@ -320,26 +319,37 @@ tunacan = sprites.create(img("""
                     ................................................................................
                     ................................................................................
     """),
-    SpriteKind.Waste)
+    SpriteKind.projectile)
 """
 *MECHANICS* 
 """
 controller.move_sprite(jo)
 scene.camera_follow_sprite(jo)
+
 carryState = False
+carryAllow = False
+nearBin = False
+
+
+
 if jo.overlaps_with(tunacan):
-    allowCarry2 = True
-    
-    def on_a_pressed():
+    carryAllow = True
+
+def dropWaste(item: Sprite, binKind):#*how to make it know what waste
+    if item in binKind:
         pass
-    controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
+
+def on_a_pressed():
+    if carryState is True and nearBin is True:
+        pass
+controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
     
 # 
 # I dont get what this is doing
 
 def on_overlap(sprite, otherSprite):
     pass
-sprites.on_overlap(SpriteKind.player, SpriteKind.Waste, on_overlap)
+sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap)
 
 # I dont get what this is doing or how to change it 
 # bins

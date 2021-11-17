@@ -1,13 +1,10 @@
-let allowCarry2: boolean;
 namespace SpriteKind {
     export const helper = SpriteKind.create()
-    export const Waste = SpriteKind.create()
+    // Waste = SpriteKind.create()
     export const Bin = SpriteKind.create()
-    export const NPC = SpriteKind.create()
 }
 
 /** *set up* */
-let allowCarry = false
 //  characters
 let jo = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -235,7 +232,7 @@ let cerealbox = sprites.create(img`
                     ................................................................................
                     ................................................................................
                     ................................................................................
-    `, SpriteKind.Waste)
+    `, SpriteKind.Projectile)
 let tunacan = sprites.create(img`
         ................................................................................
                     ................................................................................
@@ -317,21 +314,34 @@ let tunacan = sprites.create(img`
                     ................................................................................
                     ................................................................................
                     ................................................................................
-    `, SpriteKind.Waste)
+    `, SpriteKind.Projectile)
 /** *MECHANICS* */
 controller.moveSprite(jo)
 scene.cameraFollowSprite(jo)
 let carryState = false
+let carryAllow = false
+let nearBin = false
 if (jo.overlapsWith(tunacan)) {
-    allowCarry2 = true
-    controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
-        
-    })
+    carryAllow = true
 }
 
+function dropWaste(item: Sprite, binKind: any) {
+    // *how to make it know what waste
+    if (binKind.indexOf(item) >= 0) {
+        
+    }
+    
+}
+
+controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
+    if (carryState === true && nearBin === true) {
+        
+    }
+    
+})
 //  
 //  I dont get what this is doing
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Waste, function on_overlap(sprite: Sprite, otherSprite: Sprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function on_overlap(sprite: Sprite, otherSprite: Sprite) {
     
 })
 //  I dont get what this is doing or how to change it 
