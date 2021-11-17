@@ -319,10 +319,11 @@ let tunacan = sprites.create(img`
 controller.moveSprite(jo)
 scene.cameraFollowSprite(jo)
 let carryState = false
-let carryAllow = false
+let handFree = 2
 let nearBin = false
-if (jo.overlapsWith(tunacan)) {
-    carryAllow = true
+function pickUp(item: Sprite) {
+    item.follow(jo, 300)
+    handFree - 1
 }
 
 function dropWaste(item: Sprite, binKind: any) {
@@ -335,6 +336,10 @@ function dropWaste(item: Sprite, binKind: any) {
 
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
     if (carryState === true && nearBin === true) {
+        
+    }
+    
+    if (carryState === false && handFree > 0) {
         
     }
     

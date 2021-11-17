@@ -327,20 +327,25 @@ controller.move_sprite(jo)
 scene.camera_follow_sprite(jo)
 
 carryState = False
-carryAllow = False
+handFree = 2
 nearBin = False
 
 
 
-if jo.overlaps_with(tunacan):
-    carryAllow = True
+def pickUp(item:Sprite):
+    item.follow(jo, 300)
+    handFree - 1
+        
 
 def dropWaste(item: Sprite, binKind):#*how to make it know what waste
     if item in binKind:
         pass
 
+
 def on_a_pressed():
     if carryState is True and nearBin is True:
+        pass
+    if carryState is False and handFree > 0:
         pass
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
     
