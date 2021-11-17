@@ -4,6 +4,9 @@ class SpriteKind:
     #Waste = SpriteKind.create()
     Bin = SpriteKind.create()
 
+
+
+
 """
 *set up* 
 """
@@ -237,6 +240,7 @@ cerealbox = sprites.create(img("""
                     ................................................................................
     """),
     SpriteKind.projectile)
+
 tunacan = sprites.create(img("""
         ................................................................................
                     ................................................................................
@@ -320,6 +324,9 @@ tunacan = sprites.create(img("""
                     ................................................................................
     """),
     SpriteKind.projectile)
+
+
+
 """
 *MECHANICS* 
 """
@@ -329,8 +336,6 @@ scene.camera_follow_sprite(jo)
 carryState = False
 handFree = 2
 nearBin = False
-
-
 
 def pickUp(item:Sprite):
     item.follow(jo, 300)
@@ -386,6 +391,8 @@ blueBin = sprites.create(img("""
                 8888888888888888888888888
     """),
     SpriteKind.Bin)
+
+
 blackBin = sprites.create(img("""
         fffffffffffffffffffffffff
             fffffffffffffffffffffffff
