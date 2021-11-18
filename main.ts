@@ -4,7 +4,19 @@ namespace SpriteKind {
     export const Bin = SpriteKind.create()
 }
 
+/** 
+syntax of the adding data extension:
+    mySprite = sprites.create(sprites.food.small_apple, SpriteKind.player)
+    sprites.set_data_string(mySprite, "name", "alex")
+    name = sprites.read_data_string(mySprite, "name")
+
+ */
 /** *set up* */
+let p = "Paper and small cardboard items"
+let h = "Glass, hard plastics and metal"
+let r = "Residual waste"
+let e = "Batteries"
+let c = "compost"
 //  characters
 let jo = sprites.create(img`
         . . . . . . f f f f . . . . . . 
@@ -233,6 +245,7 @@ let cerealbox = sprites.create(img`
                     ................................................................................
                     ................................................................................
     `, SpriteKind.Projectile)
+sprites.setDataString(cerealbox, "sortedIn", p || c)
 let tunacan = sprites.create(img`
         ................................................................................
                     ................................................................................
@@ -315,11 +328,13 @@ let tunacan = sprites.create(img`
                     ................................................................................
                     ................................................................................
     `, SpriteKind.Projectile)
+sprites.setDataString(cerealbox, "sortedIn", h)
 /** *MECHANICS* */
 controller.moveSprite(jo)
 scene.cameraFollowSprite(jo)
 let carryState = false
 let handFree = 2
+// how many things jo can hold
 let nearBin = false
 function pickUp(item: Sprite) {
     item.follow(jo, 300)

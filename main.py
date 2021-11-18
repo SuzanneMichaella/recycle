@@ -3,13 +3,22 @@ class SpriteKind:
     helper = SpriteKind.create()
     #Waste = SpriteKind.create()
     Bin = SpriteKind.create()
-
-
-
+'''
+syntax of the adding data extension:
+    mySprite = sprites.create(sprites.food.small_apple, SpriteKind.player)
+    sprites.set_data_string(mySprite, "name", "alex")
+    name = sprites.read_data_string(mySprite, "name")
+'''
 
 """
 *set up* 
 """
+p = 'Paper and small cardboard items'
+h = 'Glass, hard plastics and metal'
+r= 'Residual waste'
+e = 'Batteries'
+c = 'compost'
+
 # characters
 jo = sprites.create(img("""
         . . . . . . f f f f . . . . . . 
@@ -30,6 +39,7 @@ jo = sprites.create(img("""
                     . . . . . f f . . f f . . . . .
     """),
     SpriteKind.player)
+
 # scenes
 tiles.set_tilemap(tilemap("""
     level2
@@ -240,6 +250,7 @@ cerealbox = sprites.create(img("""
                     ................................................................................
     """),
     SpriteKind.projectile)
+sprites.set_data_string(cerealbox, "sortedIn", p or c)
 
 tunacan = sprites.create(img("""
         ................................................................................
@@ -324,6 +335,7 @@ tunacan = sprites.create(img("""
                     ................................................................................
     """),
     SpriteKind.projectile)
+sprites.set_data_string(cerealbox, "sortedIn", h )
 
 
 
@@ -334,7 +346,7 @@ controller.move_sprite(jo)
 scene.camera_follow_sprite(jo)
 
 carryState = False
-handFree = 2
+handFree = 2 #how many things jo can hold
 nearBin = False
 
 def pickUp(item:Sprite):
@@ -422,3 +434,6 @@ blackBin = sprites.create(img("""
     """),
     SpriteKind.Bin)
 # stevie.set_position(jo.x - 10, jo.y-10)
+
+
+
