@@ -28,7 +28,7 @@ scene.camera_follow_sprite(jo)
 
 # scenes
 tiles.set_tilemap(tilemap("""
-    level2
+    level1
 """))
 
 
@@ -51,6 +51,8 @@ juiceJug.x=tunacan.x+50
 notePage = sprites.create(assets.image("""notePage"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
 notePage.x=1000
+
+
 
 # bins
 blueBin = sprites.create(assets.image("""blue bin"""),

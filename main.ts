@@ -25,7 +25,7 @@ controller.moveSprite(jo)
 scene.cameraFollowSprite(jo)
 //  scenes
 tiles.setTilemap(tilemap`
-    level2
+    level1
 `)
 //  trash items
 let cerealbox = sprites.create(assets.image`cerealBox`, SpriteKind.Waste)
