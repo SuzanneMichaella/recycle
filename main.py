@@ -38,17 +38,21 @@ cerealbox = sprites.create(assets.image("""cerealBox"""),
 sprites.set_data_string(cerealbox, "sortedIn", p or c)
 sprites.setDataBoolean(cerealbox, "carryState", False)
 
-tunacan = sprites.create(assets.image("""tunacan"""),
+tunacan = sprites.create(assets.image("""tuna can"""),
     SpriteKind.Waste)
 sprites.set_data_string(tunacan, 'sortedIn', h )
 sprites.setDataBoolean(tunacan, "carryState", False)
 tunacan.x=cerealbox.x+50
 
-juiceJug = sprites.create(assets.image("""juiceJug"""), SpriteKind.Waste)
+juiceJug = sprites.create(assets.image("""juice jug"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
 juiceJug.x=tunacan.x+50
 
-notePage = sprites.create(assets.image("""notePage"""), SpriteKind.Waste)
+notePage = sprites.create(assets.image("""note page"""), SpriteKind.Waste)
+sprites.setDataBoolean(juiceJug, "carryState", False)
+notePage.x=1000
+
+apple = sprites.create(assets.image("""apple core"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
 notePage.x=1000
 
@@ -63,8 +67,9 @@ blackBin = sprites.create(assets.image("""black bin"""),
     SpriteKind.Bin)
 blackBin.x=5000
 
-papBin = sprites.create(assets.image("""papBin"""), SpriteKind.Bin)
+papBin = sprites.create(assets.image("""pap bin"""), SpriteKind.Bin)
 papBin.x=200
+
 
 
 #where the items belong

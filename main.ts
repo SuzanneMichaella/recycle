@@ -31,14 +31,17 @@ tiles.setTilemap(tilemap`
 let cerealbox = sprites.create(assets.image`cerealBox`, SpriteKind.Waste)
 sprites.setDataString(cerealbox, "sortedIn", p || c)
 sprites.setDataBoolean(cerealbox, "carryState", false)
-let tunacan = sprites.create(assets.image`tunacan`, SpriteKind.Waste)
+let tunacan = sprites.create(assets.image`tuna can`, SpriteKind.Waste)
 sprites.setDataString(tunacan, "sortedIn", h)
 sprites.setDataBoolean(tunacan, "carryState", false)
 tunacan.x = cerealbox.x + 50
-let juiceJug = sprites.create(assets.image`juiceJug`, SpriteKind.Waste)
+let juiceJug = sprites.create(assets.image`juice jug`, SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", false)
 juiceJug.x = tunacan.x + 50
-let notePage = sprites.create(assets.image`notePage`, SpriteKind.Waste)
+let notePage = sprites.create(assets.image`note page`, SpriteKind.Waste)
+sprites.setDataBoolean(juiceJug, "carryState", false)
+notePage.x = 1000
+let apple = sprites.create(assets.image`apple core`, SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", false)
 notePage.x = 1000
 //  bins
@@ -46,7 +49,7 @@ let blueBin = sprites.create(assets.image`blue bin`, SpriteKind.Bin)
 blueBin.x = 150
 let blackBin = sprites.create(assets.image`black bin`, SpriteKind.Bin)
 blackBin.x = 5000
-let papBin = sprites.create(assets.image`papBin`, SpriteKind.Bin)
+let papBin = sprites.create(assets.image`pap bin`, SpriteKind.Bin)
 papBin.x = 200
 // where the items belong
 let hList = [tunacan, juiceJug]
