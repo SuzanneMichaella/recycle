@@ -19,14 +19,13 @@ let e = "Batteries"
 let c = "compost"
 let allowcarry = false
 // ???what was i doing...
+scene.screenWidth()
 //  characters
 let jo = sprites.create(assets.image`Jo`, SpriteKind.Player)
 controller.moveSprite(jo)
 scene.cameraFollowSprite(jo)
 //  scenes
-tiles.setTilemap(tilemap`
-    level1
-`)
+tiles.setTilemap(assets.tilemap`level 1`)
 //  trash items
 let cerealbox = sprites.create(assets.image`cerealBox`, SpriteKind.Waste)
 sprites.setDataString(cerealbox, "sortedIn", p || c)

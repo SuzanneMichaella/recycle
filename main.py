@@ -19,6 +19,7 @@ r= 'Residual waste'
 e = 'Batteries'
 c = 'compost'
 allowcarry = False #???what was i doing...
+scene.screen_width()
 
 # characters
 jo = sprites.create(assets.image("""Jo"""),
@@ -27,10 +28,7 @@ controller.move_sprite(jo)
 scene.camera_follow_sprite(jo)
 
 # scenes
-tiles.set_tilemap(tilemap("""
-    level1
-"""))
-
+tiles.set_tilemap(assets.tilemap('''level 1'''))
 
 # trash items
 cerealbox = sprites.create(assets.image("""cerealBox"""),
