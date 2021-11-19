@@ -18,7 +18,7 @@ h = 'Glass, hard plastics and metal'
 r= 'Residual waste'
 e = 'Batteries'
 c = 'compost'
-allowcarry = False
+allowcarry = False #???what was i doing...
 
 # characters
 jo = sprites.create(assets.image("""Jo"""),
@@ -156,19 +156,30 @@ cerealbox = sprites.create(assets.image("""cerealBox"""),
 sprites.set_data_string(cerealbox, "sortedIn", p or c)
 sprites.setDataBoolean(cerealbox, "carryState", False)
 
-
-
 tunacan = sprites.create(assets.image("""tunacan"""),
     SpriteKind.projectile)
 sprites.set_data_string(tunacan, 'sortedIn', h )
 sprites.setDataBoolean(tunacan, "carryState", False)
+tunacan.x=1000
 
 juiceJug = sprites.create(assets.image("""juiceJug"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
+juiceJug.x=1000
 
 notePage = sprites.create(assets.image("""notePage"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
+notePage.x=1000
 
+# bins
+blueBin = sprites.create(assets.image("""blue bin"""),
+    SpriteKind.Bin)
+blueBin.x=1000
+
+blackBin = sprites.create(assets.image("""black bin"""),
+    SpriteKind.Bin)
+blackBin.x=500
+
+#where the items belong
 hList =[tunacan, juiceJug]
 pList =[cerealbox, notePage]
 
@@ -176,8 +187,6 @@ pList =[cerealbox, notePage]
 
 
 '''MECHANICS'''
-
-
 controller.move_sprite(jo)
 scene.camera_follow_sprite(jo)
 
@@ -185,90 +194,30 @@ carryState = False # if somethng is being carried
 handFree = 2 #how many things jo can hold
 nearBin = False
 
+
+info.set_score(0)
+def on_on_overlap(sprite, otherSprite):
+    def on_button_event_a_pressed():
+            if jo.overlaps_with(otherSprite):
+                otherSprite.follow(jo, 75)
+    controller.player1.on_button_event(ControllerButton.A, ControllerButtonEvent.PRESSED, on_button_event_a_pressed)
+
+    def on_button_event_b_pressed():
+        otherSprite.follow(None)
+        if jo.overlaps_with(blueBin):
+                
+                info.change_score_by(1)
+                otherSprite.destroy()
+    controller.B.on_event(ControllerButtonEvent.PRESSED, on_button_event_b_pressed)
+sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_on_overlap)
    
-        
-def dropWaste (Bin, item, list):
-    if item in list and Bin in list:
-        pass
-
-def on_a_pressed():
-    
-    def on_overlap(sprite, otherSprite):
-        allowcarry = True
-    sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap)
-
-    def pickUp(wasteItem: Sprite):
-        if allowcarry is True and handFree > 0: 
-            wasteItem.follow(jo, 300)
-            handFree - 1
-        
-controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
-    
 #
 # I dont get what this is doing
 
 
 
 # I dont get what this is doing or how to change it
-# bins
-blueBin = sprites.create(img("""
-        8888888888888888888888888
-                8888888888888888888888888
-                8888888888888888888888888
-                8888888888888118888888888
-                8888888888811111188888888
-                8888888888111811118888888
-                8888888881118888111888888
-                8888888811188888881888888
-                8888888111888888111118888
-                8888888118888888811188888
-                8888888888888888881888888
-                8888881888888888888888888
-                8888811888888888888118888
-                8881111888888888888111888
-                8811111188888888888811188
-                8888118888888888888881118
-                8881188888888888888888118
-                8881188888888888888888118
-                8811888888888888881888811
-                8811111111111188811888811
-                8811111111111188111111111
-                8888888888888888811881111
-                8888888888888888881888888
-                8888888888888888888888888
-                8888888888888888888888888
-    """),
-    SpriteKind.Bin)
 
-
-blackBin = sprites.create(img("""
-        fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-            fffffffffffffffffffffffff
-    """),
-    SpriteKind.Bin)
 # stevie.set_position(jo.x - 10, jo.y-10)
 
 

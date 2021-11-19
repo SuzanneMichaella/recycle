@@ -314,6 +314,62 @@ namespace myImages {
 . . . . . f f f f f f . . . . . 
 . . . . . f f . . f f . . . . . 
 `;
+            case "image6":
+            case "black bin":return img`
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+fffffffffffffffffffffffff
+`;
+            case "image7":
+            case "blue bin":return img`
+8888888888888888888888888
+8888888888888888888888888
+8888888888888888888888888
+8888888888888118888888888
+8888888888811111188888888
+8888888888111811118888888
+8888888881118888111888888
+8888888811188888881888888
+8888888111888888111118888
+8888888118888888811188888
+8888888888888888881888888
+8888881888888888888888888
+8888811888888888888118888
+8881111888888888888111888
+8811111188888888888811188
+8888118888888888888881118
+8881188888888888888888118
+8881188888888888888888118
+8811888888888888881888811
+8811111111111188811888811
+8811111111111188111111111
+8888888888888888811881111
+8888888888888888881888888
+8888888888888888888888888
+8888888888888888888888888
+`;
         }
         return null;
     })

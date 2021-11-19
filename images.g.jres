@@ -24,6 +24,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Jo"
     },
+    "image6": {
+        "data": "hwQZABkAAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA////////////////DwAAAP///////////////w8AAAD///////////////8PAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "black bin"
+    },
+    "image7": {
+        "data": "hwQZABkAAACIiIiIiIiIiIiIiIgIAAAAiIiIiIiIiIiIiIiICAAAAIiIiIiIiIiBiBGBiAgAAACIiIiIiIgYgRERgYgIAAAAiIiIiIiIGBERGIGICAAAAIiIiIiIiBERiBiBiAgAAACIiIiIiBgRgYgYgYgIAAAAiIiIiBGIiIGIGIGICAAAAIiIiBgRiIiIiBiBiAgAAACIiIgRgYiIiIgYgYgIAAAAiIgYEYiIiIiIGIGICAAAAIiIEYGIiIiIiBiBiAgAAACIiBGIiIiIiIgYgYgIAAAAiBiBiIiIiIiIGIGICAAAAIgYEYiIiIiIiIiIiAgAAACIiBGIiIiIiIiIiIgIAAAAiIgRgYGIiIiIiIGICAAAAIiIGIERiIiIiBgRiAgAAACIiIgREYGIiIgREYEIAAAAiIiIiBGIEYiIiIGICAAAAIiIiIiBiBGBiIiBiAgAAACIiIiIiIgYEYiIEYgIAAAAiIiIiIiIiBERiBGICAAAAIiIiIiIiIgYERERiAgAAACIiIiIiIiIiIgREYgIAAAA",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "blue bin"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
