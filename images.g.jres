@@ -34,6 +34,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "blue bin"
     },
+    "image8": {
+        "data": "hwQYABAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAdgYAAAAAAGB3BgAAAAAAdmcIAAAAAAB+5szu7u6+AG7m7u7u7u4L7nZ37u7u7r7udnfu7u7u7u5+5u7u7u7u7n7o7u7u7u7ufuju7u7u7u5+5u7u7u7u7nZn7u7u7u7ud3fu7u7uvuxm6O7u7u4Lbmbo7u7uvgB2dwYAAAAAAGB3BgAAAAAAAHYGAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "papBin"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",

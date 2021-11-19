@@ -21,6 +21,8 @@ let allowcarry = false
 // ???what was i doing...
 //  characters
 let jo = sprites.create(assets.image`Jo`, SpriteKind.Player)
+controller.moveSprite(jo)
+scene.cameraFollowSprite(jo)
 //  scenes
 tiles.setTilemap(tilemap`
     level2
@@ -44,12 +46,12 @@ let blueBin = sprites.create(assets.image`blue bin`, SpriteKind.Bin)
 blueBin.x = 150
 let blackBin = sprites.create(assets.image`black bin`, SpriteKind.Bin)
 blackBin.x = 5000
+let papBin = sprites.create(assets.image`papBin`, SpriteKind.Bin)
+papBin.x = 200
 // where the items belong
 let hList = [tunacan, juiceJug]
 let pList = [cerealbox, notePage]
 /** MECHANICS */
-controller.moveSprite(jo)
-scene.cameraFollowSprite(jo)
 let carryState = false
 //  if somethng is being carried
 let handFree = 2
@@ -67,8 +69,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Waste, function on_on_overlap(sp
     controller.B.onEvent(ControllerButtonEvent.Pressed, function on_button_event_b_pressed() {
         otherSprite.follow(null)
         if (jo.overlapsWith(blueBin)) {
-            info.changeScoreBy(1)
-            otherSprite.destroy()
+            if (hList.indexOf(otherSprite) >= 0) {
+                info.changeScoreBy(1)
+                otherSprite.destroy()
+            }
+            
+        }
+        
+        if (jo.overlapsWith(papBin)) {
+            if (pList.indexOf(otherSprite) >= 0) {
+                info.changeScoreBy(1)
+                otherSprite.destroy()
+            }
+            
         }
         
     })

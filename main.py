@@ -23,6 +23,8 @@ allowcarry = False #???what was i doing...
 # characters
 jo = sprites.create(assets.image("""Jo"""),
     SpriteKind.player)
+controller.move_sprite(jo)
+scene.camera_follow_sprite(jo)
 
 # scenes
 tiles.set_tilemap(tilemap("""
@@ -59,17 +61,15 @@ blackBin = sprites.create(assets.image("""black bin"""),
     SpriteKind.Bin)
 blackBin.x=5000
 
+papBin = sprites.create(assets.image("""papBin"""), SpriteKind.Bin)
+papBin.x=200
+
 
 #where the items belong
 hList =[tunacan, juiceJug]
 pList =[cerealbox, notePage]
 
-
-
-
 '''MECHANICS'''
-controller.move_sprite(jo)
-scene.camera_follow_sprite(jo)
 
 carryState = False # if somethng is being carried
 handFree = 2 #how many things jo can hold
@@ -86,12 +86,17 @@ def on_on_overlap(sprite, otherSprite):
     def on_button_event_b_pressed():
         otherSprite.follow(None)
         if jo.overlaps_with(blueBin):
+            if otherSprite in hList:
+                info.change_score_by(1)
+                otherSprite.destroy()
+        if jo.overlaps_with(papBin):
+            if otherSprite in pList:
                 info.change_score_by(1)
                 otherSprite.destroy()
     controller.B.on_event(ControllerButtonEvent.PRESSED, on_button_event_b_pressed)
     
 sprites.on_overlap(SpriteKind.player, SpriteKind.Waste, on_on_overlap)
-   
+
 #
 # I dont get what this is doing
 
