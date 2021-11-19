@@ -11,13 +11,14 @@ syntax of the adding data extension:
 '''
 
 """
-*set up* 
+*set up*
 """
 p = 'Paper and small cardboard items'
 h = 'Glass, hard plastics and metal'
 r= 'Residual waste'
 e = 'Batteries'
 c = 'compost'
+allowcarry = False
 
 # characters
 jo = sprites.create(assets.image("""Jo"""),
@@ -184,29 +185,31 @@ carryState = False # if somethng is being carried
 handFree = 2 #how many things jo can hold
 nearBin = False
 
-def pickUp(item:Sprite):
-    item.follow(jo, 300)
-    handFree - 1
+   
         
 def dropWaste (Bin, item, list):
     if item in list and Bin in list:
         pass
 
 def on_a_pressed():
-    if carryState is True and nearBin is True: # dropping
-        pass
-    if carryState is False and handFree > 0: #picking up
-        pass
+    
+    def on_overlap(sprite, otherSprite):
+        allowcarry = True
+    sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap)
+
+    def pickUp(wasteItem: Sprite):
+        if allowcarry is True and handFree > 0: 
+            wasteItem.follow(jo, 300)
+            handFree - 1
+        
 controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
     
-# 
+#
 # I dont get what this is doing
 
-def on_overlap(sprite, otherSprite):
-    pass
-sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_overlap)
 
-# I dont get what this is doing or how to change it 
+
+# I dont get what this is doing or how to change it
 # bins
 blueBin = sprites.create(img("""
         8888888888888888888888888
