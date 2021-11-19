@@ -148,24 +148,24 @@ scene.setBackgroundImage(img`
     1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 `)
 //  trash items
-let cerealbox = sprites.create(assets.image`cerealBox`, SpriteKind.Projectile)
+let cerealbox = sprites.create(assets.image`cerealBox`, SpriteKind.Waste)
 sprites.setDataString(cerealbox, "sortedIn", p || c)
 sprites.setDataBoolean(cerealbox, "carryState", false)
-let tunacan = sprites.create(assets.image`tunacan`, SpriteKind.Projectile)
+let tunacan = sprites.create(assets.image`tunacan`, SpriteKind.Waste)
 sprites.setDataString(tunacan, "sortedIn", h)
 sprites.setDataBoolean(tunacan, "carryState", false)
-tunacan.x = 1000
+tunacan.x = cerealbox.x + 50
 let juiceJug = sprites.create(assets.image`juiceJug`, SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", false)
-juiceJug.x = 1000
+juiceJug.x = tunacan.x + 50
 let notePage = sprites.create(assets.image`notePage`, SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", false)
 notePage.x = 1000
 //  bins
 let blueBin = sprites.create(assets.image`blue bin`, SpriteKind.Bin)
-blueBin.x = 1000
+blueBin.x = 150
 let blackBin = sprites.create(assets.image`black bin`, SpriteKind.Bin)
-blackBin.x = 500
+blackBin.x = 5000
 // where the items belong
 let hList = [tunacan, juiceJug]
 let pList = [cerealbox, notePage]
@@ -177,8 +177,9 @@ let carryState = false
 let handFree = 2
 // how many things jo can hold
 let nearBin = false
+// picking up and dropping off
 info.setScore(0)
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function on_on_overlap(sprite: Sprite, otherSprite: Sprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Waste, function on_on_overlap(sprite: Sprite, otherSprite: Sprite) {
     controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function on_button_event_a_pressed() {
         if (jo.overlapsWith(otherSprite)) {
             otherSprite.follow(jo, 75)

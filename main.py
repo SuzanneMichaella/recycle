@@ -152,19 +152,19 @@ scene.set_background_image(img("""
 """))
 # trash items
 cerealbox = sprites.create(assets.image("""cerealBox"""),
-    SpriteKind.projectile)
+    SpriteKind.Waste)
 sprites.set_data_string(cerealbox, "sortedIn", p or c)
 sprites.setDataBoolean(cerealbox, "carryState", False)
 
 tunacan = sprites.create(assets.image("""tunacan"""),
-    SpriteKind.projectile)
+    SpriteKind.Waste)
 sprites.set_data_string(tunacan, 'sortedIn', h )
 sprites.setDataBoolean(tunacan, "carryState", False)
-tunacan.x=1000
+tunacan.x=cerealbox.x+50
 
 juiceJug = sprites.create(assets.image("""juiceJug"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
-juiceJug.x=1000
+juiceJug.x=tunacan.x+50
 
 notePage = sprites.create(assets.image("""notePage"""), SpriteKind.Waste)
 sprites.setDataBoolean(juiceJug, "carryState", False)
@@ -173,11 +173,13 @@ notePage.x=1000
 # bins
 blueBin = sprites.create(assets.image("""blue bin"""),
     SpriteKind.Bin)
-blueBin.x=1000
+blueBin.x=150
 
 blackBin = sprites.create(assets.image("""black bin"""),
     SpriteKind.Bin)
-blackBin.x=500
+blackBin.x=5000
+
+
 
 #where the items belong
 hList =[tunacan, juiceJug]
@@ -194,7 +196,7 @@ carryState = False # if somethng is being carried
 handFree = 2 #how many things jo can hold
 nearBin = False
 
-
+#picking up and dropping off
 info.set_score(0)
 def on_on_overlap(sprite, otherSprite):
     def on_button_event_a_pressed():
@@ -205,11 +207,11 @@ def on_on_overlap(sprite, otherSprite):
     def on_button_event_b_pressed():
         otherSprite.follow(None)
         if jo.overlaps_with(blueBin):
-                
                 info.change_score_by(1)
                 otherSprite.destroy()
     controller.B.on_event(ControllerButtonEvent.PRESSED, on_button_event_b_pressed)
-sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_on_overlap)
+    
+sprites.on_overlap(SpriteKind.player, SpriteKind.Waste, on_on_overlap)
    
 #
 # I dont get what this is doing
